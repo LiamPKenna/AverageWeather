@@ -22,15 +22,10 @@ dateCreator(date2, 1);
 dateArray(date1, dates);
 dateArray(date2, dates2);
 
-const delay = () => {
-	return new Promise(resolve => setTimeout(resolve, 300));
-}
-
 const tempTemp = async (name, dates) => {
 	const totalTemp = [];
 	let responseCount = 0;
 	for (const date of dates) {
-		await delay();
 		totalTemp.push(`${name} ${date}`);
 		responseCount += 1;
 		console.log(`${totalTemp.toString()}`);
