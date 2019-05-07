@@ -20,6 +20,10 @@ const dateArray = function(thisDate1, array) {
 }
 dateCreator(date1, 0);
 dateCreator(date2, 1);
+var pushToGoogleSheet = true;
+if (query[2]) {
+	pushToGoogleSheet = false;
+}
 dateArray(date1, dates);
 dateArray(date2, dates2);
 
@@ -60,8 +64,10 @@ const runCities = async () => {
 	 	console.log(tempArray);
 		const thisYearAverage = `${tempArray[1]}°`;
 		const differenceString = `${difference}°`;
-	 	writeToSheet(SHEET,`New!I${cities[i][2]}:I${cities[i][2]}`, [[thisYearAverage]]);
-		writeToSheet(SHEET,`New!J${cities[i][2]}:J${cities[i][2]}`, [[differenceString]]);
+		if (pushToGoogleSheet) {
+		 	writeToSheet(SHEET,`New!I${cities[i][2]}:I${cities[i][2]}`, [[thisYearAverage]]);
+			writeToSheet(SHEET,`New!J${cities[i][2]}:J${cities[i][2]}`, [[differenceString]]);
+		};
 	};
 };
 
