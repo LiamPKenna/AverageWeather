@@ -1,5 +1,6 @@
 const temp = require('./temperature');
 const query = process.argv.slice(2)
+const writeToSheet = require('./js/sheetsAPI.js').writeToSheet;
 let date1 = new Date();
 let date2 = new Date();
 const dates = [];
@@ -51,11 +52,16 @@ const getAverages = async (city, dateRange, dateRange2) => {
 
 const runCities = async () => {
 	for (let i = 0; i < cities.length; i++) {
-	 let tempArray = await getAverages(cities[i], dates, dates2);
-	 const difference = (tempArray[1] - tempArray[0]);
-	 console.log(`${cities[i][0]} was ${tempArray[0]}° in ${dates[0].substring(0,4)} and ${tempArray[1]}° in ${dates2[0].substring(0,4)}`);
-	 console.log(`The difference for ${cities[i][0]} was ${difference}°`);
-	 console.log(tempArray);
+		const SHEET = '1cfuG2Pi7eZRzS1B7G6TDKHn1X2QvAPd45Xn9n8T7Faw';
+	 	let tempArray = await getAverages(cities[i], dates, dates2);
+	 	const difference = (tempArray[1] - tempArray[0]);
+	 	console.log(`${cities[i][0]} was ${tempArray[0]}° in ${dates[0].substring(0,4)} and ${tempArray[1]}° in ${dates2[0].substring(0,4)}`);
+	 	console.log(`The difference for ${cities[i][0]} was ${difference}°`);
+	 	console.log(tempArray);
+		const thisYearAverage = `${tempArray[1]}°`;
+		const differenceString = `${difference}°`;
+	 	writeToSheet(SHEET,`New!I${cities[i][2]}:I${cities[i][2]}`, [[thisYearAverage]]);
+		writeToSheet(SHEET,`New!J${cities[i][2]}:J${cities[i][2]}`, [[differenceString]]);
 	};
 };
 
