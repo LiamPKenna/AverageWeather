@@ -1,0 +1,11 @@
+{
+  "name": "averageweather",
+  "version": "1.0.0",
+  "description": "Uses Dark Sky API to get average historical data for markets with cafes",
+  "main": "app.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "lpk",
+  "license": "ISC"
+}
