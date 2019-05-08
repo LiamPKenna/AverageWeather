@@ -64,6 +64,7 @@ const runCities = async () => {
 		if (pushToGoogleSheet) {
 		 	writeToSheet(SHEET,`New!I${cities[i][2]}:I${cities[i][2]}`, [[thisYearAverage]]);
 			writeToSheet(SHEET,`New!J${cities[i][2]}:J${cities[i][2]}`, [[differenceString]]);
+			console.log(`${cities[i][0]} is done`);
 		} else {
 			console.log(`${cities[i][0]} was ${tempArray[0]}° in ${dates[0].substring(0,4)} and ${tempArray[1]}° in ${dates2[0].substring(0,4)}`);
 		 	console.log(`The difference for ${cities[i][0]} was ${difference}°`);
