@@ -35,7 +35,6 @@ async function getTemp(city, dates){
 					const averageHigh = totalHighTemp.reduce(add, 0) / 7;
 					const averageLow = totalLowTemp.reduce(add, 0) / 7;
 					const averageTemp = Math.round(averageLow + ((averageHigh - averageLow) / 2));
-					console.log(`The average temperature in ${readableCity} in ${dates[0].substring(0,4)} was ${averageTemp}° Fahrenheit`);
 				}
 			} catch (error) {
 				errorMessage(error);
