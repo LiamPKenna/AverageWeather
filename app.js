@@ -45,7 +45,7 @@ const tempTemp = async (name, dates) => {
 };
 //const query = process.argv.slice(2).join("_").replace(' ', '_');
 
-const cities = [['Portland OR', '45.5155,-122.6793', '47'], ['New York NY', '40.7128,-74.0060', '49'], ['Los Angeles CA', '34.0522,-118.2437', '50'], ['Seattle_WA', '47.6062,-122.3321', '48'], ['New_Orleans_LA', '29.9511,-90.0715', '51'], ['Chicago_IL', '41.8781,-87.6298','52']];
+const cities = [['Portland OR', '45.5155,-122.6793', '47'], ['New York NY', '40.7128,-74.0060', '49'], ['Los Angeles CA', '34.0522,-118.2437', '50'], ['Seattle WA', '47.6062,-122.3321', '48'], ['New Orleans LA', '29.9511,-90.0715', '51'], ['Chicago IL', '41.8781,-87.6298','52']];
 
 const getAverages = async (city, dateRange, dateRange2) => {
 	const temp1 = await temp.get(city, dateRange);
