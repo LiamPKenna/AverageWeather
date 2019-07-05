@@ -56,7 +56,7 @@ const getAverages = async (city, dateRange, dateRange2) => {
 
 const runCities = async () => {
 	for (let i = 0; i < cities.length; i++) {
-		const SHEET = '1cfuG2Pi7eZRzS1B7G6TDKHn1X2QvAPd45Xn9n8T7Faw';
+		const SHEET = '1-B_dZVudvY4y3X0O0kvvQWjAm2Pj5gkMLTwUar5kVRI';
 	 	let tempArray = await getAverages(cities[i], dates, dates2);
 	 	const difference = (tempArray[1] - tempArray[0]);
 		const thisYearAverage = `${tempArray[1]}°`;
