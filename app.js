@@ -1,6 +1,9 @@
 const temp = require('./temperature');
 const query = process.argv.slice(2)
 const writeToSheet = require('./js/sheetsAPI.js').writeToSheet;
+const SHEET = require('.keys/sheetID.js').SHEET;
+
+
 let date1 = new Date();
 let date2 = new Date();
 const dates = [];
@@ -56,7 +59,6 @@ const getAverages = async (city, dateRange, dateRange2) => {
 
 const runCities = async () => {
 	for (let i = 0; i < cities.length; i++) {
-		const SHEET = '1-B_dZVudvY4y3X0O0kvvQWjAm2Pj5gkMLTwUar5kVRI';
 	 	let tempArray = await getAverages(cities[i], dates, dates2);
 	 	const difference = (tempArray[1] - tempArray[0]);
 		const thisYearAverage = `${tempArray[1]}°`;
