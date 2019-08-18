@@ -1,6 +1,6 @@
 const https = require('https');
 const http = require('http');
-const api = require('./api');
+const api = require('./keys/api');
 const axios = require('axios')
 
 function printMessage(data, date, query){
