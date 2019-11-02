@@ -1,7 +1,6 @@
 const temp = require('./temperature');
-const query = process.argv.slice(2)
-const writeToSheet = require('./js/sheetsAPI.js').writeToSheet;
-const SHEET = require('.keys/sheetID.js').SHEET;
+const query = process.argv.slice(2);
+const cities = require('./cities.js');
 
 
 let date1 = new Date();
@@ -23,10 +22,7 @@ const dateArray = function(thisDate1, array) {
 }
 dateCreator(date1, 0);
 dateCreator(date2, 1);
-var pushToGoogleSheet = true;
-if (query[2]) {
-	pushToGoogleSheet = false;
-}
+
 dateArray(date1, dates);
 dateArray(date2, dates2);
 
@@ -46,9 +42,7 @@ const tempTemp = async (name, dates) => {
 		}
 	}
 };
-//const query = process.argv.slice(2).join("_").replace(' ', '_');
 
-const cities = [['Portland OR', '45.5155,-122.6793', '47'], ['New York NY', '40.7128,-74.0060', '49'], ['Los Angeles CA', '34.0522,-118.2437', '50'], ['Seattle WA', '47.6062,-122.3321', '48'], ['New Orleans LA', '29.9511,-90.0715', '51'], ['Chicago IL', '41.8781,-87.6298','52']];
 
 const getAverages = async (city, dateRange, dateRange2) => {
 	const temp1 = await temp.get(city, dateRange);
@@ -63,15 +57,9 @@ const runCities = async () => {
 	 	const difference = (tempArray[1] - tempArray[0]);
 		const thisYearAverage = `${tempArray[1]}°`;
 		const differenceString = `${difference}°`;
-		if (pushToGoogleSheet) {
-		 	writeToSheet(SHEET,`New!I${cities[i][2]}:I${cities[i][2]}`, [[thisYearAverage]]);
-			writeToSheet(SHEET,`New!J${cities[i][2]}:J${cities[i][2]}`, [[differenceString]]);
-			console.log(`${cities[i][0]} is done`);
-		} else {
 			console.log(`${cities[i][0]} was ${tempArray[0]}° in ${dates[0].substring(0,4)} and ${tempArray[1]}° in ${dates2[0].substring(0,4)}`);
 		 	console.log(`The difference for ${cities[i][0]} was ${difference}°`);
 		 	console.log(tempArray);
-		};
 	};
 };
 
