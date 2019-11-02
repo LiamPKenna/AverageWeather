@@ -9,6 +9,6 @@
   "author": "lpk",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^39.2.0"
+    "axios": "^0.19.0"
   }
 }
