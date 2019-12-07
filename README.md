@@ -13,7 +13,7 @@ _Simple weather app taking two dates (YYYYMMDD) and returning the change in aver
 * _Obtain an API key from Dark Sky (free here: https://darksky.net/dev)_
 * _Clone to your machine and run npm i in the program directory_
 * _Place your key in the indicated place in the file keys/apiTEMPLATE.js and rename it to keys/api.js_
-       $ node app 20180111 20190110
+* _Run the program with two dates (older first): "$ node app 20180111 20190110"_
 * _This will return the average temp for each city for both weeks and the difference between weeks_
 
 ## Known Bugs
